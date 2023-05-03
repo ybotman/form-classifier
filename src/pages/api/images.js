@@ -1,13 +1,14 @@
 import nextConnect from "next-connect";
 import axios from "axios";
+import { apiUrl } from "../../apiConfig";
+
 
 const handler = nextConnect();
 
-const apiUrl = "http://localhost:5000/images";
 
 handler.get(async (req, res) => {
     try {
-        const { data } = await axios.get(apiUrl);
+        const { data } = await axios.get(`${apiUrl}/images`);
         res.json(data);
     } catch (error) {
         console.error("GET /api/images error:", error.message);

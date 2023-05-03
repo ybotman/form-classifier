@@ -5,7 +5,7 @@ import ImageAttributesForm from "../components/ImageAttributesForm";
 import axios from "axios";
 import Modal from "react-modal";
 import Image from "next/image";
-
+import { apiUrl } from "../apiConfig";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
@@ -48,7 +48,7 @@ const Index = () => {
 
   const fetchImages = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/images");
+      const { data } = await axios.get(`${apiUrl}/images`);
       setImages(data);
     } catch (error) {
       console.error("Error fetching images:", error);
