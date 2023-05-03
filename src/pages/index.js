@@ -5,15 +5,11 @@ import ImageAttributesForm from "../components/ImageAttributesForm";
 import axios from "axios";
 import Modal from "react-modal";
 import Image from "next/image";
-import { apiUrl } from "../apiConfig";
+//import { apiUrl } from "../apiConfig";
 import { jsonServerUrl, nextApiUrl } from "../apiConfig";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
-
-//const { data } = await axios.get(`${jsonServerUrl}/images`);
-//const { data: savedImage } = await axios.put(`${jsonServerUrl}/images`, updatedImage);
-//const { data } = await axios.post(`${nextApiUrl}/api/upload`, formData, config);
 
 Modal.setAppElement("#__next");
 
@@ -112,14 +108,15 @@ const Index = () => {
             onClick={() => setSelectedImage(image)}
             width={200}
             height={200} // Set a fixed height or calculate it based on the image aspect ratio
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
+            priority={true}
             className="image-thumbnail"
           />
         ))}
       </div>
       {selectedImage && (
         <Modal isOpen onRequestClose={() => setSelectedImage(null)}>
-          <Image src={selectedImage.filePath} alt="" width={600} height={400} objectFit="contain" />
+          <Image src={selectedImage.filePath} alt="" width={600} height={400} style={{ objectFit: "cover" }} />
           <ImageAttributesForm onSubmit={handleUpdateAttributes} initialValues={selectedImage.attributes} />
         </Modal>
       )}
