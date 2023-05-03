@@ -1,0 +1,15 @@
+{
+    "images": [
+        {
+            "id": 1,
+            "filePath": "/images/SS.png",
+            "attributes": {
+                "system": "",
+                "page": "",
+                "business_process": "",
+                "domain": "",
+                "CRUD": ""
+            }
+        }
+    ]
+}

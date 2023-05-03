@@ -6,13 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "json-server": "json-server --watch db.json --port 5000",
+    "server": "node server.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/material": "^5.12.3",
+    "@mui/system": "^5.12.3",
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
+    "fs": "^0.0.1-security",
+    "json-server": "^0.17.3",
+    "mui-image": "^1.0.7",
+    "multer": "^1.4.5-lts.1",
     "next": "13.3.4",
+    "next-connect": "^0.13.0",
+    "path": "^0.12.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-modal": "^3.16.1"
   }
 }
