@@ -49,7 +49,6 @@ const Index = () => {
   const fetchImages = async () => {
     try {
       const { data } = await axios.get(`${jsonServerUrl}/images`);
-      //const { data } = await axios.get(`${apiUrl}/images`);
       setImages(data);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -60,9 +59,7 @@ const Index = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      //const { data } = await axios.post(`${nextApiUrl}/api/upload`, formData, config);
       const { data } = await axios.post(`${nextApiUrl}/api/upload`, formData, {
-        //const { data } = await axios.post(`${apiUrl}/api/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -74,30 +71,58 @@ const Index = () => {
   };
 
   const handleUpdateAttributes = async (updatedAttributes) => {
-    const updatedImage = { ...selectedImage, attributes: updatedAttributes };
-    const { data: savedImage } = await axios.put(`${jsonServerUrl}/images`, updatedImage);
-    //const { data: savedImage } = await axios.put("api/images", updatedImage);
-    setImages(images.map((img) => (img.id === savedImage.id ? savedImage : img)));
-    setSelectedImage(null);
+    try {
+      const updatedImage = { ...selectedImage, attributes: updatedAttributes };
+      const { data: savedImage } = await axios.put(`${jsonServerUrl}/images/${updatedImage.id}`, updatedImage);
+      setImages(images.map((img) => (img.id === savedImage.id ? savedImage : img)));
+      setSelectedImage(null);
+    } catch (error) {
+      console.error("Error updating attributes:", error);
+    }
   };
 
+
   const applyFilters = () => {
-    const filtered = images.filter((image) => {
-      return Object.keys(filters).every((key) => {
-        return filters[key] === "" || (image.attributes && image.attributes[key] === filters[key]);
+    try {
+      const filtered = images.filter((image) => {
+        return Object.keys(filters).every((key) => {
+          return filters[key] === "" || (image.attributes && image.attributes[key] === filters[key]);
+        });
       });
-    });
-    setFilteredImages(filtered);
+      setFilteredImages(filtered);
+    } catch (error) {
+      console.error("Error applying filters:", error);
+    }
   };
 
   const handleApplyFilters = (newFilters) => {
     setFilters(newFilters);
   };
 
+  function ImageGrid({ images }) {
+    return (
+      <Grid container spacing={2}>
+        {images.map((image) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={image.id}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image={image.url}
+                alt={image.description}
+              />
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    );
+  }
+
 
   return (
     <div>
       <ImageDropzone onDrop={handleImageUpload} />
+
       <ImageAttributesForm onSubmit={handleApplyFilters} initialValues={filters} isFilter />
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {filteredImages.map((image) => (

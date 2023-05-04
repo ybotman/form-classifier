@@ -15,12 +15,13 @@ handler.post((req, res) => {
 
     fs.rename(file.path, newFilePath, (err) => {
         if (err) {
-            console.error(err);
-            res.status(500).json({ error: 'Failed to save file' });
+            console.error("Error renaming file:", err);
+            res.status(500).json({ error: 'Failed to save file', details: err.message });
         } else {
             res.status(200).json({ filePath: `/images/${file.originalname}` });
         }
     });
+
 });
 
 export default handler;

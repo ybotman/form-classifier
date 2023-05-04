@@ -1,147 +1,147 @@
 {
-    "images": [
-        {
-            "id": 1001,
-            "filePath": "/images/SS.png",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1002,
-            "filePath": "/images/2.JPEG",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1003,
-            "filePath": "/images/3.JPEG",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1004,
-            "filePath": "/images/4.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1006,
-            "filePath": "/images/5.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1007,
-            "filePath": "/images/6.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1008,
-            "filePath": "/images/7.JPG",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1009,
-            "filePath": "/images/8.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1011,
-            "filePath": "/images/11.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1012,
-            "filePath": "/images/12.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1013,
-            "filePath": "/images/13.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1010,
-            "filePath": "/images/1.jpg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        },
-        {
-            "id": 1005,
-            "filePath": "/images/9.jpeg",
-            "attributes": {
-                "system": "NDM",
-                "page": "",
-                "business_process": "",
-                "domain": "",
-                "CRUD": ""
-            }
-        }
-    ]
+  "images": [
+    {
+      "id": 1001,
+      "filePath": "/images/SS.png",
+      "attributes": {
+        "system": "NDM2",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1002,
+      "filePath": "/images/2.JPEG",
+      "attributes": {
+        "system": "TEST",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1003,
+      "filePath": "/images/3.JPEG",
+      "attributes": {
+        "system": "TEST",
+        "page": "ALTERNATE",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1004,
+      "filePath": "/images/4.jpeg",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1006,
+      "filePath": "/images/5.jpeg",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1007,
+      "filePath": "/images/6.jpeg",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1008,
+      "filePath": "/images/7.JPG",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1009,
+      "filePath": "/images/8.jpeg",
+      "attributes": {
+        "system": "NDM",
+        "page": "ALTERNATE",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1011,
+      "filePath": "/images/10.jpeg",
+      "attributes": {
+        "system": "NDM2",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1012,
+      "filePath": "/images/12.jpeg",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1013,
+      "filePath": "/images/13.jpeg",
+      "attributes": {
+        "system": "NDM3",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1010,
+      "filePath": "/images/1.jpg",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    },
+    {
+      "id": 1005,
+      "filePath": "/images/9.jpeg",
+      "attributes": {
+        "system": "NDM",
+        "page": "",
+        "business_process": "",
+        "domain": "",
+        "CRUD": ""
+      }
+    }
+  ]
 }
