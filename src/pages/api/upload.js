@@ -1,27 +1,44 @@
 import nextConnect from 'next-connect';
-import multer from 'multer';
+import formidable from 'formidable';
 import fs from 'fs';
 import path from 'path';
 
-const upload = multer({ dest: 'uploads/' });
-
 const handler = nextConnect();
 
-handler.use(upload.single('file'));
+console.log("Importing upload API route");
+
+handler.use((req, res, next) => {
+    console.log("API route middleware executed"); // Add this line
+    if (req.method === 'POST' && req.headers['content-type'].startsWith('multipart/form-data')) {
+        const form = new formidable.IncomingForm();
+        form.parse(req, (err, fields, files) => {
+            if (err) {
+                console.error('Error parsing form data:', err);
+                res.status(500).json({ error: err.message });
+            } else {
+                req.body = fields;
+                req.files = files;
+                next();
+            }
+        });
+    } else {
+        next();
+    }
+});
 
 handler.post((req, res) => {
-    const file = req.file;
-    const newFilePath = path.join('public/images', file.originalname);
+    const file = req.files.file;
+    const newFilePath = path.join('public/images', file.name);
+    console.log('Received upload request', newFilePath);
 
     fs.rename(file.path, newFilePath, (err) => {
         if (err) {
-            console.error("Error renaming file:", err);
-            res.status(500).json({ error: 'Failed to save file', details: err.message });
+            console.error('Server error:', err);
+            res.status(500).json({ error: err.message });
         } else {
-            res.status(200).json({ filePath: `/images/${file.originalname}` });
+            res.status(200).json({ filePath: `/images/${file.name}` });
         }
     });
-
 });
 
 export default handler;

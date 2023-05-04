@@ -55,20 +55,28 @@ const Index = () => {
     }
   };
 
-  const handleImageUpload = async (file) => {
+
+  const handleImageUpload = async (acceptedFiles) => {
+    const file = acceptedFiles[0];
+
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const { data } = await axios.post(`${nextApiUrl}/api/upload`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+
+      console.log("Uploading image", file);
+      const { data } = await axios.post("/api/upload", formData);
+      console.log("Image uploaded:", data); // Add this line
+
+      const { data: newImage } = await axios.post(`${jsonServerUrl}/images`, {
+        url: data.filePath,
       });
-      setImageUrl(data.filePath);
+
+      setImages([...images, newImage]);
     } catch (error) {
       console.error("Error uploading image:", error);
     }
   };
+
 
   const handleUpdateAttributes = async (updatedAttributes) => {
     try {

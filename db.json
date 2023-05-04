@@ -4,7 +4,7 @@
       "id": 1001,
       "filePath": "/images/SS.png",
       "attributes": {
-        "system": "NDM2",
+        "system": "NDM",
         "page": "",
         "business_process": "",
         "domain": "",
@@ -30,7 +30,8 @@
         "page": "ALTERNATE",
         "business_process": "",
         "domain": "",
-        "CRUD": ""
+        "CRUD": "",
+        "businessProcess": "Other"
       }
     },
     {
@@ -82,7 +83,7 @@
       "filePath": "/images/8.jpeg",
       "attributes": {
         "system": "NDM",
-        "page": "ALTERNATE",
+        "page": "WIFE",
         "business_process": "",
         "domain": "",
         "CRUD": ""
@@ -92,8 +93,8 @@
       "id": 1011,
       "filePath": "/images/10.jpeg",
       "attributes": {
-        "system": "NDM2",
-        "page": "",
+        "system": "NDM3",
+        "page": "wife",
         "business_process": "",
         "domain": "",
         "CRUD": ""
