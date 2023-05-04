@@ -24,12 +24,11 @@ handler.use((req, res, next) => {
     } else {
         next();
     }
-});
-
-handler.post((req, res) => {
+}); handler.post((req, res) => {
     const file = req.files.file;
     const newFilePath = path.join('public/images', file.name);
     console.log('Received upload request', newFilePath);
+    console.log('File:', file);
 
     fs.rename(file.path, newFilePath, (err) => {
         if (err) {
@@ -40,5 +39,6 @@ handler.post((req, res) => {
         }
     });
 });
+
 
 export default handler;

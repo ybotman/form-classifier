@@ -55,7 +55,6 @@ const Index = () => {
     }
   };
 
-
   const handleImageUpload = async (acceptedFiles) => {
     const file = acceptedFiles[0];
 
@@ -63,10 +62,12 @@ const Index = () => {
       const formData = new FormData();
       formData.append("file", file);
 
-      console.log("Uploading image", file);
-      const { data } = await axios.post("/api/upload", formData);
-      console.log("Image uploaded:", data); // Add this line
+      console.log("Uploading image");
+      const response = await axios.post("/api/upload", formData);
+      console.log("Image upload response status:", response.status);
+      console.log("Image upload response data:", response.data);
 
+      const { data } = response;
       const { data: newImage } = await axios.post(`${jsonServerUrl}/images`, {
         url: data.filePath,
       });
