@@ -8,7 +8,7 @@ const handler = nextConnect();
 console.log("Importing upload API route");
 
 handler.use((req, res, next) => {
-    console.log("API route middleware executed"); // Add this line
+    console.log("API route middleware executed");
     if (req.method === 'POST' && req.headers['content-type'].startsWith('multipart/form-data')) {
         const form = new formidable.IncomingForm();
         form.parse(req, (err, fields, files) => {
@@ -18,13 +18,16 @@ handler.use((req, res, next) => {
             } else {
                 req.body = fields;
                 req.files = files;
-                next();
+                next(); // Make sure next() is called after parsing the form data
             }
         });
     } else {
         next();
     }
-}); handler.post((req, res) => {
+});
+
+
+handler.post((req, res) => {
     const file = req.files.file;
     const newFilePath = path.join('public/images', file.name);
     console.log('Received upload request', newFilePath);
