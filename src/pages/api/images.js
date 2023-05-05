@@ -7,8 +7,9 @@ const handler = nextConnect();
 
 
 handler.get(async (req, res) => {
-    console.log("axios.put", req, res)
+    console.log("IMAGES > handler.get", req, res)
     try {
+        console.log("IMAGES> handler.get TRY");
         const { data } = await axios.get(`${apiUrl}/images`);
         res.json(data);
     } catch (error) {
@@ -20,14 +21,14 @@ handler.get(async (req, res) => {
 
 
 handler.post(async (req, res) => {
-    console.log("axios.post")
+    console.log("IMAGES >>handler.post")
     const newImage = JSON.parse(req.body);
     const { data } = await axios.post(apiUrl, newImage);
     res.json(data);
 });
 
 handler.put(async (req, res) => {
-    console.log("axios.put")
+    console.log("IMAGES > >>handler.put")
     const updatedImage = JSON.parse(req.body);
     const { data } = await axios.put(`${apiUrl}/${updatedImage.id}`, updatedImage);
     res.json(data);

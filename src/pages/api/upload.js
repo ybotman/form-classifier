@@ -5,12 +5,11 @@ import path from 'path';
 
 const handler = nextConnect();
 
-console.log("Importing upload API route");
-
 handler.use((req, res, next) => {
-    console.log("API route middleware executed"); // Add this line
     if (req.method === 'POST' && req.headers['content-type'].startsWith('multipart/form-data')) {
+        console.log("UPLOAD.handler.use --> req.method === 'POST' && req.head");
         const form = new formidable.IncomingForm();
+        form.maxFileSize = 100 * 1024 * 1024;
         form.parse(req, (err, fields, files) => {
             if (err) {
                 console.error('Error parsing form data:', err);
@@ -27,11 +26,9 @@ handler.use((req, res, next) => {
 });
 
 handler.post((req, res) => {
-    console.log(".post")
     const file = req.files.file;
     const newFilePath = path.join('public/images', file.name);
-    console.log('Received upload request', newFilePath);
-
+    console.log("UPLOAD.handler.post((req, res) => {");
     fs.rename(file.path, newFilePath, (err) => {
         if (err) {
             console.error('Server error:', err);

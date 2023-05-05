@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import ImageDropzone from "../components/ImageDropzone";
 import ImageAttributesForm from "../components/ImageAttributesForm";
+
 import axios from "axios";
 import Modal from "react-modal";
 import Image from "next/image";
+
 import { jsonServerUrl, nextApiUrl } from "../apiConfig";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -14,20 +16,22 @@ Modal.setAppElement("#__next");
 
 function ImageGrid({ images }) {
   return (
-    <Grid container spacing={2}>
-      {images.map((image) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={image.id}>
-          <Card>
-            <CardMedia
-              component="img"
-              height="200"
-              image={image.url}
-              alt={image.description}
-            />
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
+    < Grid container spacing={2} >
+      {
+        images.map((image) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={image.id}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image={image.url}
+                alt={image.description}
+              />
+            </Card>
+          </Grid>
+        ))
+      }
+    </Grid >
   );
 }
 
@@ -47,6 +51,7 @@ const Index = () => {
 
   const fetchImages = async () => {
     try {
+      console.log("INDEX.fetchImages");
       const { data } = await axios.get(`${jsonServerUrl}/images`);
       setImages(data);
     } catch (error) {
@@ -57,14 +62,14 @@ const Index = () => {
 
   const handleImageUpload = async (acceptedFiles) => {
     const file = acceptedFiles[0];
-
+    console.log("INDEX.handleImageUpload");
     try {
       const formData = new FormData();
       formData.append("file", file);
 
-      console.log("Uploading image", file);
+      console.log("INDEX.TRY Uploading image", file);
       const { data } = await axios.post("./api/upload", formData);
-      console.log("Image uploaded:", data); // Add this line
+      console.log("Image uploaded:", data);
 
       const { data: newImage } = await axios.post(`${jsonServerUrl}/images`, {
         url: data.filePath,
@@ -79,6 +84,7 @@ const Index = () => {
 
   const handleUpdateAttributes = async (updatedAttributes) => {
     try {
+      console.log("INDEX.TRY handleUpdateAttributes", file);
       const updatedImage = { ...selectedImage, attributes: updatedAttributes };
       const { data: savedImage } = await axios.put(`${jsonServerUrl}/images/${updatedImage.id}`, updatedImage);
       setImages(images.map((img) => (img.id === savedImage.id ? savedImage : img)));
@@ -91,6 +97,7 @@ const Index = () => {
 
   const applyFilters = () => {
     try {
+      console.log("INDEX.TRY applyFilters");
       const filtered = images.filter((image) => {
         return Object.keys(filters).every((key) => {
           return filters[key] === "" || (image.attributes && image.attributes[key] === filters[key]);
@@ -103,6 +110,7 @@ const Index = () => {
   };
 
   const handleApplyFilters = (newFilters) => {
+    console.log("INDEX handleApplyFilters", newFilters);
     setFilters(newFilters);
   };
 
