@@ -27,7 +27,7 @@
       "filePath": "/images/3.JPEG",
       "attributes": {
         "system": "TEST",
-        "page": "ALTERNATE",
+        "page": "WIFE",
         "business_process": "",
         "domain": "",
         "CRUD": "",
@@ -61,7 +61,7 @@
       "filePath": "/images/6.jpeg",
       "attributes": {
         "system": "NDM",
-        "page": "WIFE",
+        "page": "",
         "business_process": "",
         "domain": "",
         "CRUD": ""
@@ -75,7 +75,8 @@
         "page": "WIFE",
         "business_process": "",
         "domain": "",
-        "CRUD": ""
+        "CRUD": "",
+        "businessProcess": "other"
       }
     },
     {
@@ -94,7 +95,7 @@
       "filePath": "/images/10.jpeg",
       "attributes": {
         "system": "NDM3",
-        "page": "wife",
+        "page": "WIFE",
         "business_process": "",
         "domain": "",
         "CRUD": ""
@@ -138,7 +139,7 @@
       "filePath": "/images/9.jpeg",
       "attributes": {
         "system": "NDM",
-        "page": "",
+        "page": "WIFE",
         "business_process": "",
         "domain": "",
         "CRUD": ""

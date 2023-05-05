@@ -59,16 +59,33 @@ const Index = () => {
     }
   };
 
-
   const handleImageUpload = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     console.log("INDEX.handleImageUpload");
+
+
+    // Create a new axios instance
+    const axiosInstance = axios.create();
+
+    // Add the interceptor to the new axios instance
+    axiosInstance.interceptors.response.use(
+      (response) => {
+        console.log("axiosInstance-Successful response:", response);
+        return response;
+      },
+      (error) => {
+        console.log("axiosInstance-Error response:", error.response);
+        return Promise.reject(error);
+      }
+    );
+
     try {
       const formData = new FormData();
       formData.append("file", file);
 
       console.log("INDEX.TRY Uploading image", file);
-      const { data } = await axios.post("./api/upload", formData);
+      // Use the new axios instance for the POST request
+      const { data } = await axiosInstance.post("/api/upload", formData);
       console.log("Image uploaded:", data);
 
       const { data: newImage } = await axios.post(`${jsonServerUrl}/images`, {
@@ -80,7 +97,6 @@ const Index = () => {
       console.error("Error uploading image:", error);
     }
   };
-
 
   const handleUpdateAttributes = async (updatedAttributes) => {
     try {
