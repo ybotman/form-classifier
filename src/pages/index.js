@@ -5,7 +5,6 @@ import ImageAttributesForm from "../components/ImageAttributesForm";
 import axios from "axios";
 import Modal from "react-modal";
 import Image from "next/image";
-//import { apiUrl } from "../apiConfig";
 import { jsonServerUrl, nextApiUrl } from "../apiConfig";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -64,7 +63,7 @@ const Index = () => {
       formData.append("file", file);
 
       console.log("Uploading image", file);
-      const { data } = await axios.post("/api/upload", formData);
+      const { data } = await axios.post("./api/upload", formData);
       console.log("Image uploaded:", data); // Add this line
 
       const { data: newImage } = await axios.post(`${jsonServerUrl}/images`, {

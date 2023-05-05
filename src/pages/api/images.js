@@ -7,6 +7,7 @@ const handler = nextConnect();
 
 
 handler.get(async (req, res) => {
+    console.log("axios.put", req, res)
     try {
         const { data } = await axios.get(`${apiUrl}/images`);
         res.json(data);
@@ -19,12 +20,14 @@ handler.get(async (req, res) => {
 
 
 handler.post(async (req, res) => {
+    console.log("axios.post")
     const newImage = JSON.parse(req.body);
     const { data } = await axios.post(apiUrl, newImage);
     res.json(data);
 });
 
 handler.put(async (req, res) => {
+    console.log("axios.put")
     const updatedImage = JSON.parse(req.body);
     const { data } = await axios.put(`${apiUrl}/${updatedImage.id}`, updatedImage);
     res.json(data);
