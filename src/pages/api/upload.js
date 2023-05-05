@@ -27,6 +27,7 @@ handler.use((req, res, next) => {
 });
 
 handler.post((req, res) => {
+    console.log(".post")
     const file = req.files.file;
     const newFilePath = path.join('public/images', file.name);
     console.log('Received upload request', newFilePath);
