@@ -84,8 +84,10 @@ const Index = () => {
 
   const handleUpdateAttributes = async (updatedAttributes) => {
     try {
-      console.log("INDEX.TRY handleUpdateAttributes", file);
+      console.log("INDEX.TRY handleUpdateAttributes");
       const updatedImage = { ...selectedImage, attributes: updatedAttributes };
+      console.log("INDEX.TRY updatedImage ", updatedImage, updatedAttributes);
+
       const { data: savedImage } = await axios.put(`${jsonServerUrl}/images/${updatedImage.id}`, updatedImage);
       setImages(images.map((img) => (img.id === savedImage.id ? savedImage : img)));
       setSelectedImage(null);
