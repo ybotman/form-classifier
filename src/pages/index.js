@@ -85,6 +85,12 @@ const Index = () => {
 
       console.log("INDEX.TRY Uploading image", file);
       // Use the new axios instance for the POST request
+
+      console.log('formData:', formData);
+      for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+      }
+
       const { data } = await axiosInstance.post("/api/upload", formData);
       console.log("Image uploaded:", data);
 
